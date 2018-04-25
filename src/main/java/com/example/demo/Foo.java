@@ -2,9 +2,14 @@ package com.example.demo;
 
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
 @Component
 class Foo {
+    @Resource
+    private Bar bar;
+
     int apply() {
-        return 1;
+        return (bar.apply() ? 1 : 2);
     }
 }
