@@ -9,7 +9,7 @@ import static org.mockito.Mockito.when;
 class FooTest {
     private Baz baz = mock(Baz.class);
     private Bar bar = mock(Bar.class);
-    private Foo foo = new Foo(bar);
+    private Foo foo = new Foo(bar, baz);
 
     @Test
     void ifBazAbove10AndBar_return1() {
