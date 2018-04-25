@@ -26,4 +26,11 @@ class FooTest {
         int result = foo.apply();
         assertThat(result).isEqualTo(2);
     }
+
+    @Test
+    void ifBazNotAbove10_return0() {
+        when(baz.apply()).thenReturn(10);
+        int result = foo.apply();
+        assertThat(result).isEqualTo(0);
+    }
 }
