@@ -11,7 +11,8 @@ class FooTest {
     private Foo foo = new Foo(bar);
 
     @Test
-    void ifBar_return1() {
+    void ifBazAbove10AndBar_return1() {
+        when(baz.apply()).thenReturn(12);
         when(bar.apply()).thenReturn(true);
         int result = foo.apply();
         assertThat(result).isEqualTo(1);
