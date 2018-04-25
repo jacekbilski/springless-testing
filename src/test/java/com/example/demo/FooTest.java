@@ -20,7 +20,8 @@ class FooTest {
     }
 
     @Test
-    void ifNotBar_return2() {
+    void ifBazAbove10AndNotBar_return2() {
+        when(baz.apply()).thenReturn(12);
         when(bar.apply()).thenReturn(false);
         int result = foo.apply();
         assertThat(result).isEqualTo(2);
