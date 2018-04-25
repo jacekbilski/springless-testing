@@ -29,6 +29,8 @@ class FooTest {
 
     @Test
     void ifBazNotAbove10_return0() {
+        Baz baz = mock(Baz.class);
+        Foo foo = new Foo(null, baz);
         when(baz.apply()).thenReturn(10);
         int result = foo.apply();
         assertThat(result).isEqualTo(0);
