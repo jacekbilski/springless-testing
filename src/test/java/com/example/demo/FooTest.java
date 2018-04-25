@@ -18,18 +18,29 @@ class FooTest {
     private Foo foo;
     @MockBean
     private Bar bar;
+    @MockBean
+    private Baz baz;
 
     @Test
-    void ifBar_return1() {
+    void ifBazAbove10AndBar_return1() {
+        when(baz.apply()).thenReturn(12);
         when(bar.apply()).thenReturn(true);
         int result = foo.apply();
         assertThat(result).isEqualTo(1);
     }
 
     @Test
-    void ifNotBar_return2() {
+    void ifBazAbove10AndNotBar_return2() {
+        when(baz.apply()).thenReturn(12);
         when(bar.apply()).thenReturn(false);
         int result = foo.apply();
         assertThat(result).isEqualTo(2);
+    }
+
+    @Test
+    void ifBazNotAbove10_return0() {
+        when(baz.apply()).thenReturn(10);
+        int result = foo.apply();
+        assertThat(result).isEqualTo(0);
     }
 }
